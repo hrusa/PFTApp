@@ -1,0 +1,11 @@
+﻿@model PFTApp.Models.LoginModel
+
+@{
+    ViewBag.Title = "Log in";
+}
+    <h2>Use Google account to log in.</h2>
+    @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

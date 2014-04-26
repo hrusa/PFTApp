@@ -1,0 +1,69 @@
+﻿@using System.Diagnostics
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <header>
+        <div id="logo">
+            <h1>PFT</h1>
+        </div>
+        <nav>
+            <ul>
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                @{Debug.Write("Pokus o zobrazeni cookie\nAktualni datum: "+DateTime.Now+"\nAktualni datum plus hodina: "+DateTime.Now.AddHours(1)+"\n");}
+                @if (Request.Cookies["Authorized"] != null)
+                {
+                    //DateTime dtCurrentTime = DateTime.Now;
+                    //DateTime dtExpired = Convert.ToDateTime(Request.Cookies["Authorized"]["ExpiredTime"]);
+                    //if (dtExpired < dtCurrentTime)
+                    //{
+                    //    Response.Cookies["Authorized"].Expires = DateTime.Now.AddDays(-1);
+                    //    Response.Redirect("/Home");
+                    //}                    
+                    Debug.Write("Expirace cookie: "+Request.Cookies["Authorized"].Expires+"\n");
+                    <li>@Html.ActionLink("User", "Details", "Trainee")</li>
+                    <li>@Html.ActionLink("Statistics", "Statistics", "Home")</li>
+                    <li>@Html.ActionLink("Log out", "Logout", "Account")</li>
+                    
+                } else
+                {
+                    <li>@Html.ActionLink("Log in", "Login", "Account")</li>
+                }
+            </ul>
+        </nav>
+    </header>
+    <article>
+        <div id="centrovac">
+            <header>
+                <h1>@ViewBag.Title</h1>
+            </header>
+            @RenderSection("featured", required: false)
+            <section>
+                <div class="container body-content">
+                    @RenderBody()
+                </div>
+            </section>
+            <div class="cistic"></div>
+        </div>
+    </article>
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>&copy; Pearsonal Fitness Trainer @DateTime.Now.Year</p>
+            </div>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

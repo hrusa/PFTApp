@@ -1,0 +1,78 @@
+﻿@model PFTApp.Models.Serie
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Serie</legend>
+
+        @Html.HiddenFor(model => model.id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.exerciseunitId, "exerciseunit")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("exerciseunitId", String.Empty)
+            @Html.ValidationMessageFor(model => model.exerciseunitId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.weight)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.weight)
+            @Html.ValidationMessageFor(model => model.weight)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.repetition)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.repetition)
+            @Html.ValidationMessageFor(model => model.repetition)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.pause)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.pause)
+            @Html.ValidationMessageFor(model => model.pause)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.start)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.start)
+            @Html.ValidationMessageFor(model => model.start)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.finish)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.finish)
+            @Html.ValidationMessageFor(model => model.finish)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

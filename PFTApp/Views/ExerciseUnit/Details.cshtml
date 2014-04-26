@@ -1,0 +1,36 @@
+﻿@model PFTApp.Models.ExerciseUnit
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>ExerciseUnit</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.exercise.name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.exercise.name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.workout.name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.workout.name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.done)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.done)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

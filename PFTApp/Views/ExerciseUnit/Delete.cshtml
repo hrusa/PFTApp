@@ -1,0 +1,40 @@
+﻿@model PFTApp.Models.ExerciseUnit
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>ExerciseUnit</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.exercise.name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.exercise.name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.workout.name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.workout.name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.done)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.done)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

@@ -1,0 +1,54 @@
+﻿@model PFTApp.Models.ExerciseUnit
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>ExerciseUnit</legend>
+
+        @Html.HiddenFor(model => model.id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.exerciseId, "exercise")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("exerciseId", String.Empty)
+            @Html.ValidationMessageFor(model => model.exerciseId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.workoutId, "workout")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("workoutId", String.Empty)
+            @Html.ValidationMessageFor(model => model.workoutId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.done)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.done)
+            @Html.ValidationMessageFor(model => model.done)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

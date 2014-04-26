@@ -1,0 +1,57 @@
+﻿@model PFTApp.Models.Serie
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Serie</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.exerciseunit.id)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.exerciseunit.id)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.weight)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.weight)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.repetition)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.repetition)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.pause)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.pause)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.start)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.start)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.finish)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.finish)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

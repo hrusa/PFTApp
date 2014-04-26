@@ -1,0 +1,60 @@
+﻿@model PFTApp.Models.Measure
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Measure</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.traineeId, "trainee")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("traineeId", String.Empty)
+            @Html.ValidationMessageFor(model => model.traineeId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.attributeId, "attribute")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("attributeId", String.Empty)
+            @Html.ValidationMessageFor(model => model.attributeId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.date)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.date)
+            @Html.ValidationMessageFor(model => model.date)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.value)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.value)
+            @Html.ValidationMessageFor(model => model.value)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

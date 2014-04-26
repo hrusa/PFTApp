@@ -1,0 +1,43 @@
+﻿@model PFTApp.Models.Measure
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Measure</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.trainee.name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.trainee.name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.attribute.name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.attribute.name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.date)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.date)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.value)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.value)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
